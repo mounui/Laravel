@@ -24,7 +24,7 @@ Route::get('/get',function(){
 Route::get('/testPost',function(){
     $csrf_token = csrf_token();
     $form = <<<FORM
-<form action="/hello' method="POST">
+<form action="/hello" method="POST">
     <input type="hidden" name="_token" value="{$csrf_token}">
     <input type="submit" value="Test"/>
 </form>
@@ -36,17 +36,26 @@ Route::post('/hello',function(){
 });
 
 // 其他请求路由
-/**
 Route::match(['get','post'],'/match',function(){
     return "Hello Laravel Route::match()";
 });
 Route::any('/any',function(){
     return "Hello Laravel Route::any()";
 });
- */
 // 路由参数使用
 // 必须参数
 Route::get('hello/{name}',function($name){
     return "Hello {$name}!";
 });
+Route::get('/double/{name}/by/{user}',function($name,$user){
+    return "Hello {$name} by {$user}!";
+});
+// 可选参数
+Route::get('/kexuan/{name?}',function($name="Laravel"){
+    return "Hello {$name}!";
+});
 
+// 正则约束
+Route::get('/regexp/{name?}',function($name="Laravel"){
+    return "Hello {$name}!";
+})->where('name','[A-Za-z]+');
