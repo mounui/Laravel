@@ -84,3 +84,57 @@ Route::group(['as' => 'admin::'], function () {
 Route::get('/testdashboard',function(){
     return route('admin::dashboard');
 });
+
+// 路由分组
+Route::group(['middleware'=>'test'],function(){
+    Route::get('/write/laravelacademy',function(){
+        //使用Test中间件
+    });
+    Route::get('/update/laravelacademy',function(){
+       //使用Test中间件
+    });
+});
+
+Route::get('/age/refuse',['as'=>'refuse',function(){
+    return "未成年人禁止入内！";
+}]);
+
+// 命名空间
+// 默认情况下，routes.php中的定义的控制器位于App\Http\Controllers命名空间下，所以如果要指定命名空间，只需指定App\Http\Controllers之后的部分即可：
+Route::group(['namespace' => 'LaravelAcademy'], function(){
+    // 控制器在 "App\Http\Controllers\LaravelAcademy" 命名空间下
+
+    Route::group(['namespace' => 'DOCS'], function()
+    {
+        // 控制器在 "App\Http\Controllers\LaravelAcademy\DOCS" 命名空间下
+    });
+});
+
+// 子域名
+// 子域名可以通过domain关键字来设置：
+Route::group(['domain'=>'{service}.laravel.app'],function(){
+    Route::get('/write/laravelacademy',function($service){
+        return "Write FROM {$service}.laravel.app";
+    });
+    Route::get('/update/laravelacademy',function($service){
+        return "Update FROM {$service}.laravel.app";
+    });
+});
+
+// 路由前缀
+Route::group(['prefix'=>'laravelacademy'],function(){
+    Route::get('write',function(){
+        return "Write LaravelAcademy";
+    });
+    Route::get('update',function(){
+        return "Update LaravelAcademy";
+    });
+});
+Route::group(['prefix'=>'laravelacademy/{version}'],function(){
+    Route::get('write',function($version){
+        return "Write LaravelAcademy {$version}";
+    });
+    Route::get('update',function($version){
+        return "Update LaravelAcademy {$version}";
+    });
+});
