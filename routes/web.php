@@ -59,3 +59,28 @@ Route::get('/kexuan/{name?}',function($name="Laravel"){
 Route::get('/regexp/{name?}',function($name="Laravel"){
     return "Hello {$name}!";
 })->where('name','[A-Za-z]+');
+
+// 路由命名
+Route::get('/hello/laravelacademy',['as'=>'academy',function(){
+    return 'Hello LaravelAcademy！';
+}]);
+Route::get('/testNamedRoute',function(){
+   return route('academy');
+});
+Route::get('/testNamedRoute',function(){
+    return redirect()->route('academy');
+});
+Route::get('/hello/wujing/{id}',['as'=>'wujing',function($id){
+    return 'Hello wujing'.$id.'！';
+}]);
+Route::get('/wujing',function(){
+   return redirect()->route('wujing',['id'=>'love']); 
+});
+Route::group(['as' => 'admin::'], function () {
+    Route::get('dashboard', ['as' => 'dashboard', function () {
+        //
+    }]);
+});
+Route::get('/testdashboard',function(){
+    return route('admin::dashboard');
+});
