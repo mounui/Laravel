@@ -130,6 +130,7 @@ Route::group(['prefix'=>'laravelacademy'],function(){
         return "Update LaravelAcademy";
     });
 });
+
 Route::group(['prefix'=>'laravelacademy/{version}'],function(){
     Route::get('write',function($version){
         return "Write LaravelAcademy {$version}";
