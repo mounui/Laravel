@@ -139,3 +139,18 @@ Route::group(['prefix'=>'laravelacademy/{version}'],function(){
         return "Update LaravelAcademy {$version}";
     });
 });
+/* csrf */
+Route::get('testCsrf',function(){
+    $csrf_field = csrf_field();
+    $html = <<<GET
+        <form method="POST" action="/testCsrf">
+            <input type="submit" value="Test"/>
+        </form>
+GET;
+    return $html;
+});
+
+Route::post('testCsrf',function(){
+    return 'Success!';
+});
+Route::resource('post','PostController');
