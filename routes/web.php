@@ -153,4 +153,5 @@ GET;
 Route::post('testCsrf',function(){
     return 'Success!';
 });
-Route::resource('post','PostController');
+/* Route::resource('post','PostController'); */
+Route::resource('get','UserController');
