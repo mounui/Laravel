@@ -1,2 +1,3 @@
-<?php
-echo $message;
+<html>
+	{{$message}}
+</html>

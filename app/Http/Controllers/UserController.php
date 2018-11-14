@@ -18,8 +18,8 @@ class UserController extends Controller
     $status = 200;
     $value = 'text/html;charset=utf-8';
     /* return response($content,$status)->header('Content-Type',$value)->withCookie('site','laravel.home'); */
-return response()->view('hello',['message'=>'Hello LaravelAcademy'])
-        ->header('Content-Type',$value);
+    // return view('hello',['message'=>'Hello LaravelAcademy']);
+    return response()->json(['name'=>'LaravelAcademy','passwd'=>'LaravelAcademy.org'])->setCallback(request()->input('callback'));
     }
 }
 
