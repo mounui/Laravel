@@ -61,7 +61,7 @@ Route::get('/regexp/{name?}',function($name="Laravel"){
 })->where('name','[A-Za-z]+');
 
 // 路由命名
-Route::get('/hello/laravelacademy',['as'=>'academy',function(){
+/*Route::get('/hello/laravelacademy',['as'=>'academy',function(){
     return 'Hello LaravelAcademy！';
 }]);
 Route::get('/testNamedRoute',function(){
@@ -69,7 +69,7 @@ Route::get('/testNamedRoute',function(){
 });
 Route::get('/testNamedRoute',function(){
     return redirect()->route('academy');
-});
+});*/
 Route::get('/hello/wujing/{id}',['as'=>'wujing',function($id){
     return 'Hello wujing'.$id.'！';
 }]);
@@ -154,4 +154,27 @@ Route::post('testCsrf',function(){
     return 'Success!';
 });
 /* Route::resource('post','PostController'); */
-Route::resource('get','UserController');
+// Route::resource('get','UserController');
+/*Route::get('dashboard', function () {
+    return redirect('home/dashboard');
+});*/
+
+/*Route::get('/hello/laravelacademy/{id}',['as'=>'academy',function($id){
+    return 'Hello LaravelAcademy'.$id;
+}]);
+
+Route::get('testResponseRedirect',function(){
+    // echo route('academy');exit;
+    return redirect()->route('academy',100);
+});*/
+
+/*Route::resource('post','PostController');
+
+Route::get('testResponseRedirect',function(){
+    return redirect()->action('PostController@show',[1]);
+});*/
+
+Route::post('user/profile', function () {
+    // 更新用户属性...
+    return redirect('dashboard')->with('status', 'Profile updated!');
+});
