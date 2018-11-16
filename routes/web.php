@@ -17,7 +17,14 @@ Route::get('/', function () {
 
 // GET请求路由
 Route::get('/get',function(){
-    return "Hello Laravel Route::get()";
+    // return "Hello Laravel Route::get()";
+    $environment = App::environment();
+    $environment = getenv('REMOTE_ADDR');
+    // var_dump($environment);
+    // var_dump(function_exists('config'));
+    // config(['app.timezone'=>'Asia/Shanghai']);
+    $value = config('app.timezone');
+    var_dump($value);
 });
 
 // POST请求路由
@@ -32,7 +39,7 @@ FORM;
     return $form;
 });
 Route::post('/hello',function(){
-    return "Hello Laravel Route::post()";
+    // return "Hello Laravel Route::post()";
 });
 
 // 其他请求路由
@@ -174,7 +181,7 @@ Route::get('testResponseRedirect',function(){
     return redirect()->action('PostController@show',[1]);
 });*/
 
-Route::post('user/profile', function () {
+/*Route::post('user/profile', function () {
     // 更新用户属性...
     return redirect('dashboard')->with('status', 'Profile updated!');
-});
+});*/
