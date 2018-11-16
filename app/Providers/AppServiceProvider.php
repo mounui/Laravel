@@ -13,7 +13,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->share('sitename','Laravel Study');
+
+        //视图Composer
+        view()->composer('hello',function($view){
+            $view->with('user',array('name'=>'test','avatar'=>'/path/to/test.jpg'));
+        });
+
+        /*view()->composer(['hello','home'],function($view){
+            $view->with('user',array('name'=>'test','avatar'=>'/path/to/test.jpg'));
+        });
+        // 传递到所有视图
+        view()->composer('*',function($view){
+            $view->with('user',array('name'=>'test','avatar'=>'/path/to/test.jpg'));
+        });*/
     }
 
     /**

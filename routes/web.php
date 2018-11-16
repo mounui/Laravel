@@ -174,7 +174,15 @@ Route::get('testResponseRedirect',function(){
     return redirect()->action('PostController@show',[1]);
 });*/
 
-Route::post('user/profile', function () {
+/*Route::post('user/profile', function () {
     // 更新用户属性...
     return redirect('dashboard')->with('status', 'Profile updated!');
+});*/
+
+Route::get('testViewHello',function(){
+    return view('hello');
+});
+
+Route::get('testViewHome',function(){
+    return view('home');
 });
