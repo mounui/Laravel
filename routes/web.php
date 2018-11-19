@@ -185,3 +185,8 @@ Route::get('testResponseRedirect',function(){
     // 更新用户属性...
     return redirect('dashboard')->with('status', 'Profile updated!');
 });*/
+
+use Illuminate\Support\Facades\Cache;
+Route::get('/cache', function () {
+    $a = Cache::get('key');
+});
