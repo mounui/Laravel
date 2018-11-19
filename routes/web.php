@@ -196,6 +196,8 @@ Route::get('/cache', function () {
 });
 Route::redirect('/here', '/there', 301);*/
 
-Route::get('mao/{id}',function($id){
+/*Route::get('mao/{id}',function($id){
     echo 'Id is '.$id;
-})->where('id','[0-9]');
+})->where('id','[0-9]');*/
+
+Route::get('mao','ShowProfile');
