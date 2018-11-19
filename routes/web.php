@@ -186,7 +186,16 @@ Route::get('testResponseRedirect',function(){
     return redirect('dashboard')->with('status', 'Profile updated!');
 });*/
 
-use Illuminate\Support\Facades\Cache;
+/*use Illuminate\Support\Facades\Cache;
 Route::get('/cache', function () {
     $a = Cache::get('key');
+});*/
+
+/*Route::get('/mao', function() {
+    echo 'Hello world!';
 });
+Route::redirect('/here', '/there', 301);*/
+
+Route::get('mao/{id}',function($id){
+    echo 'Id is '.$id;
+})->where('id','[0-9]');
