@@ -207,4 +207,5 @@ Route::redirect('/here', '/there', 301);*/
     echo 'Id is '.$id;
 })->where('id','[0-9]');*/
 
-Route::get('mao','ShowProfile');
+// Route::get('mao','ShowProfile');
+Route::any('users/{id}','UserController@update');
