@@ -17,7 +17,14 @@ Route::get('/', function () {
 
 // GET请求路由
 Route::get('/get',function(){
-    return "Hello Laravel Route::get()";
+    // return "Hello Laravel Route::get()";
+    $environment = App::environment();
+    $environment = getenv('REMOTE_ADDR');
+    // var_dump($environment);
+    // var_dump(function_exists('config'));
+    // config(['app.timezone'=>'Asia/Shanghai']);
+    $value = config('app.timezone');
+    var_dump($value);
 });
 
 // POST请求路由
@@ -32,7 +39,7 @@ FORM;
     return $form;
 });
 Route::post('/hello',function(){
-    return "Hello Laravel Route::post()";
+    // return "Hello Laravel Route::post()";
 });
 
 // 其他请求路由
@@ -186,3 +193,18 @@ Route::get('testViewHello',function(){
 Route::get('testViewHome',function(){
     return view('home');
 });
+/*use Illuminate\Support\Facades\Cache;
+Route::get('/cache', function () {
+    $a = Cache::get('key');
+});*/
+
+/*Route::get('/mao', function() {
+    echo 'Hello world!';
+});
+Route::redirect('/here', '/there', 301);*/
+
+/*Route::get('mao/{id}',function($id){
+    echo 'Id is '.$id;
+})->where('id','[0-9]');*/
+
+Route::get('mao','ShowProfile');
