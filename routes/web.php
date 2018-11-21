@@ -193,11 +193,11 @@ Route::get('testViewHello',function(){
 Route::get('testViewHome',function(){
     /* return view('home'); */
    /* return view()->first(['custom.admin','admin'],$data); */ 
-    echo url()->current();
-    echo url()->full();
-    echo url()->previous().'<br>';
-    $url = action('UserController@update', ['id' => 1]);
-    echo $url;
+    /* echo url()->current(); */
+    /* echo url()->full(); */
+    /* echo url()->previous().'<br>'; */
+    return redirect()->action('UserController@update', ['id' => 1]);
+    /* echo $url; */
 });
 /*use Illuminate\Support\Facades\Cache;
 Route::get('/cache', function () {

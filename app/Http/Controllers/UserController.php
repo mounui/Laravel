@@ -31,8 +31,11 @@ class UserController extends Controller
         $uri = $request->all();
         $uri = $request->input('id');
         $uri = $request->has('id');
-        var_dump($uri);
+        /* $request->session()->flash('status','test'); */
+        $request->session()->regenerate();
+        $data = $request->session()->all();
+        var_dump($data);
+        /* var_dump($uri); */
         /* echo $uri; */
     }
 }
-
