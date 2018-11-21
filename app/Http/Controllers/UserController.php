@@ -24,6 +24,7 @@ class UserController extends Controller
     }
     public function update(Request $request, $id)
     {
+        abort(404,'test');
         /* echo 'Id is' . $id; */
         $uri = $request->path();
         $uri = $request->url();
