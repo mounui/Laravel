@@ -214,4 +214,11 @@ Route::redirect('/here', '/there', 301);*/
 })->where('id','[0-9]');*/
 
 // Route::get('mao','ShowProfile');
-Route::any('users/{id}','UserController@update');
+// Route::any('users/{id}','UserController@update');
+/*Route::get('blade', function () {
+    return view('child');
+});
+*/
+Route::get('greeting', function () {
+    return view('child', ['name' => 'Samantha']);
+});
