@@ -220,5 +220,9 @@ Route::redirect('/here', '/there', 301);*/
 });
 */
 Route::get('greeting', function () {
-    return view('child', ['name' => 'Samantha']);
+    echo __('messages.welcome');
+    echo 'ok';
+    echo 'is';
+    echo 1;
+    // return view('child', ['name' => 'Samantha']);
 });
