@@ -220,9 +220,13 @@ Route::redirect('/here', '/there', 301);*/
 });
 */
 Route::get('greeting', function () {
-    echo __('messages.welcome');
+    /*echo __('messages.welcome');
     echo 'ok';
     echo 'is';
-    echo 1;
+    echo 1;*/
     // return view('child', ['name' => 'Samantha']);
+    // config(['app.key'=>'123']);
+    // echo config('app.key');
+    $a = encrypt('1234');
+    echo decrypt($a);
 });
