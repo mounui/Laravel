@@ -227,6 +227,6 @@ Route::get('greeting', function () {
     // return view('child', ['name' => 'Samantha']);
     // config(['app.key'=>'123']);
     // echo config('app.key');
-    $a = encrypt('1234');
+    $a = encrypt('12345');
     echo decrypt($a);
 });
