@@ -228,5 +228,5 @@ Route::get('greeting', function () {
     // config(['app.key'=>'123']);
     // echo config('app.key');
     $a = encrypt('12345');
-    echo decrypt($a);
+    // echo decrypt($a);
 });
